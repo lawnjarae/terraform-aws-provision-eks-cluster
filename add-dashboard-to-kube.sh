@@ -8,10 +8,10 @@ fi
 # Set the kubectl context
 aws eks --region "us-west-2" update-kubeconfig --name $1
 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
 kubectl apply -f dashboard-adminuser.yaml 
 kubectl apply -f cluster-role-binding.yaml
 
-./get-dashboard-token.sh
+./get-dashboard-token.sh | pbcopy
 
 kubectl proxy
